@@ -33,18 +33,20 @@ def error_page(request,err):
 
 
 def home(request):
-    url = "https://ru.dotabuff.com/heroes/winning"
-    r = requests.get(url, headers = {"user-agent":"Mozilla/5.0 (Windows NT 6.1; Win64; x64)"})
-    html = r.text
-    soup = BeautifulSoup(html, 'html.parser')
-    text_filter_1 = soup.get_text().split("УСП")[1]
-    text_filter_2 = text_filter_1.split("Обновлено")[0].replace(" ", "")
-    text_filter_3 = re.findall("[a-zA-Z]+", text_filter_2)
-    top_30_heroes = text_filter_3[0:31]
+    #url = "https://ru.dotabuff.com/heroes/winning"
+    #r = requests.get(url, headers = {"user-agent":"Mozilla/5.0 (Windows NT 6.1; Win64; x64)"})
+    #html = r.text
+    #soup = BeautifulSoup(html, 'html.parser')
+    #text_filter_1 = soup.get_text().split("УСП")[1]
+    #text_filter_2 = text_filter_1.split("Обновлено")[0].replace(" ", "")
+    #text_filter_3 = re.findall("[a-zA-Z]+", text_filter_2)
+    #top_30_heroes = text_filter_3[0:31]
 
-    hero_stats = re.split("[a-zA-Z]+", text_filter_2)[1:31]
-    allz = [x + " " + y for x, y in zip(top_30_heroes, hero_stats)]
-    return render(request, 'home.html',{'topheroes':top_30_heroes, 'topstats':hero_stats, 'ttt':allz})
+    #hero_stats = re.split("[a-zA-Z]+", text_filter_2)[1:31]
+    #allz = [x + " " + y for x, y in zip(top_30_heroes, hero_stats)]
+
+    top_30_heroes = "xxx"
+    return render(request, 'home.html',{'topheroes':top_30_heroes} #, 'topstats':hero_stats, 'ttt':allz})
 
 
 
